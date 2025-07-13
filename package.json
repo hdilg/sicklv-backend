@@ -1,0 +1,15 @@
+{
+  "name": "sicklv-backend",
+  "version": "1.0.0",
+  "description": "نظام شخصي لاستعلام الإجازات المرضية",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^7.0.0"
+  }
+}
