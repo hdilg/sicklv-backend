@@ -8,7 +8,6 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 const path = require('path');
 
 const app = express();
@@ -43,29 +42,82 @@ app.use(express.static(path.join(__dirname)));
 
 // بيانات الإجازات المرضية (شخصية للاستخدام الداخلي فقط)
 const leaves = [
-  { serviceCode: "GSL25021372778", idNumber: "1088576044", name: "عبدالاله سليمان عبدالله الهديلج",
-    reportDate: "2025-02-09", startDate: "2025-02-09", endDate: "2025-02-24",
-    doctorName: "هدى مصطفى خضر دحبور", jobTitle: "استشاري", days: 16
+  {
+    serviceCode: "GSL25021372778",
+    idNumber: "1088576044",
+    name: "عبدالاله سليمان عبدالله الهديلج",
+    reportDate: "2025-02-09",
+    startDate: "2025-02-09",
+    endDate: "2025-02-24",
+    doctorName: "هدى مصطفى خضر دحبور",
+    jobTitle: "استشاري",
+    days: 16
   },
-  { serviceCode: "GSL25021898579", idNumber: "1088576044", name: "عبدالاله سليمان عبدالله الهديلج",
-    reportDate: "2025-02-25", startDate: "2025-02-25", endDate: "2025-03-26",
-    doctorName: "جمال راشد السر محمد احمد", jobTitle: "استشاري", days: 30
+  {
+    serviceCode: "GSL25021898579",
+    idNumber: "1088576044",
+    name: "عبدالاله سليمان عبدالله الهديلج",
+    reportDate: "2025-02-25",
+    startDate: "2025-02-25",
+    endDate: "2025-03-26",
+    doctorName: "جمال راشد السر محمد احمد",
+    jobTitle: "استشاري",
+    days: 30
   },
-  { serviceCode: "GSL25022385036", idNumber: "1088576044", name: "عبدالاله سليمان عبدالله الهديلج",
-    reportDate: "2025-03-27", startDate: "2025-03-27", endDate: "2025-04-17",
-    doctorName: "جمال راشد السر محمد احمد", jobTitle: "استشاري", days: 22
+  {
+    serviceCode: "GSL25022385036",
+    idNumber: "1088576044",
+    name: "عبدالاله سليمان عبدالله الهديلج",
+    reportDate: "2025-03-27",
+    startDate: "2025-03-27",
+    endDate: "2025-04-17",
+    doctorName: "جمال راشد السر محمد احمد",
+    jobTitle: "استشاري",
+    days: 22
   },
-  { serviceCode: "GSL25022884602", idNumber: "1088576044", name: "عبدالاله سليمان عبدالله الهديلج",
-    reportDate: "2025-04-18", startDate: "2025-04-18", endDate: "2025-05-15",
-    doctorName: "هدى مصطفى خضر دحبور", jobTitle: "استشاري", days: 28
+  {
+    serviceCode: "GSL25022884602",
+    idNumber: "1088576044",
+    name: "عبدالاله سليمان عبدالله الهديلج",
+    reportDate: "2025-04-18",
+    startDate: "2025-04-18",
+    endDate: "2025-05-15",
+    doctorName: "هدى مصطفى خضر دحبور",
+    jobTitle: "استشاري",
+    days: 28
   },
-  { serviceCode: "GSL25023345012", idNumber: "1088576044", name: "عبدالاله سليمان عبدالله الهديلج",
-    reportDate: "2025-05-16", startDate: "2025-05-16", endDate: "2025-06-12",
-    doctorName: "هدى مصطفى خضر دحبور", jobTitle: "استشاري", days: 28
+  {
+    serviceCode: "GSL25023345012",
+    idNumber: "1088576044",
+    name: "عبدالاله سليمان عبدالله الهديلج",
+    reportDate: "2025-05-16",
+    startDate: "2025-05-16",
+    endDate: "2025-06-12",
+    doctorName: "هدى مصطفى خضر دحبور",
+    jobTitle: "استشاري",
+    days: 28
   },
-  { serviceCode: "GSL25062955824", idNumber: "1088576044", name: "عبدالاله سليمان عبدالله الهديلج",
-    reportDate: "2025-06-13", startDate: "2025-06-13", endDate: "2025-07-11",
-    doctorName: "هدى مصطفى خضر دحبور", jobTitle: "استشاري", days: 29
+  {
+    serviceCode: "GSL25062955824",
+    idNumber: "1088576044",
+    name: "عبدالاله سليمان عبدالله الهديلج",
+    reportDate: "2025-06-13",
+    startDate: "2025-06-13",
+    endDate: "2025-07-11",
+    doctorName: "هدى مصطفى خضر دحبور",
+    jobTitle: "استشاري",
+    days: 29
+  },
+  {
+    serviceCode: "GSL25071678945",
+    idNumber: "1088576044",
+    name: "عبدالاله سليمان عبدالله الهديلج",
+    reportDate: "2025-07-12",
+    startDate: "2025-07-12",
+    endDate: "2025-07-13",
+    doctorName: "هدى مصطفى خضر دحبور",
+    jobTitle: "استشاري",
+    days: 2
   }
 ];
 
