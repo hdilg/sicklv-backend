@@ -1,7 +1,7 @@
 {
   "name": "sicklv-protect-api",
   "version": "1.0.0",
-  "description": "API Node.js مدمج بأحدث أنظمة الحماية التقنية الفائقة ضد الهجمات والثغرات والبلاغات",
+  "description": "منصة API عالية الأمان لإدارة الإجازات عبر Node.js وExpress مع طبقات حماية متقدمة.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -21,7 +21,12 @@
     "xss",
     "csrf",
     "nodejs",
-    "anti-ddos"
+    "anti-ddos",
+    "vacation",
+    "leave",
+    "arabic-api",
+    "sick-leave",
+    "reCAPTCHA"
   ],
   "author": "hdilg",
   "license": "MIT",
@@ -32,6 +37,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.0",
     "express-hpp": "^1.0.3",
+    "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^7.0.0",
     "express-useragent": "^1.0.16",
     "geoip-lite": "^2.0.2",
@@ -43,5 +49,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
